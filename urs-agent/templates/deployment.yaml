@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: urs-agent
+  name: urs-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: urs-agent
+  template:
+    metadata:
+      labels:
+        app: urs-agent
+    spec:
+      containers:
+        - name: urs-agent
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-agent:52
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: env.profile
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: env.profile
+            - name: spring.data.redis.host
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.data.redis.host
+            - name: spring.data.redis.timeout
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.data.redis.timeout
+            - name: tunnel.host
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: tunnel.host
+            - name: spring.cloud.kubernetes.discovery.namespaces
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.cloud.kubernetes.discovery.namespaces

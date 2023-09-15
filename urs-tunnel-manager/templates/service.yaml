@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: urs-tunnel-manager
+    MAPPING_TUNNEL_PORT: '8022'
+  name: urs-tunnel-manager
+spec:
+  ports:
+    - port: 8022
+      protocol: TCP
+      name: port-redirect
+      targetPort: 22
+    - port: 8023
+      protocol: TCP
+      name: port-cli
+      targetPort: 23
+  selector:
+    app: urs-tunnel-manager
+  type: ClusterIP
+

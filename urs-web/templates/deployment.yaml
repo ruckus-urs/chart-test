@@ -1,0 +1,136 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: urs-web
+  name: urs-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: urs-web
+  template:
+    metadata:
+      labels:
+        app: urs-web
+    spec:
+      containers:
+        - name: urs-web
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-web:90
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: env.profile
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: env.profile
+            - name: mfa.enable
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: mfa.enable
+            - name: spring.data.redis.host
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.data.redis.host
+            - name: spring.data.redis.timeout
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.data.redis.timeout
+            - name: system.code
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: system.code.unleashed
+            - name: service.domain
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: service.domain.unleashed
+            - name: service.cookie.domain
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: service.cookie.domain.unleashed
+            - name: spring.cloud.kubernetes.discovery.namespaces
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.cloud.kubernetes.discovery.namespaces
+            - name: aws.cognito.region
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: aws.cognito.region.unleashed
+            - name: aws.cognito.clientId
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: aws.cognito.clientId.unleashed
+            - name: aws.cognito.pool-id
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: aws.cognito.pool-id.unleashed
+            - name: aws.cognito.user-pool-domain
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: aws.cognito.user-pool-domain.unleashed
+            - name:  email.service.smtp
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: email.service.smtp.unleashed
+            - name:  email.service.auth
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: email.service.auth.unleashed
+            - name:  email.service.port
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: email.service.port.unleashed
+            - name:  email.service.starttls.enable
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: email.service.starttls.enable.unleashed
+            - name:  email.service.ssl.enable
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: email.service.ssl.enable.unleashed
+            - name:  email.service.userName
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: email.service.userName.unleashed
+            - name:  email.service.password
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: email.service.password.unleashed
+            - name: spring.security.oauth2.client.registration.cognito.clientId
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: aws.cognito.clientId.unleashed
+            - name: spring.security.oauth2.client.registration.cognito.clientSecret
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: cognito.clientSecret.unleashed
+            - name: aws.access_key_id
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: aws.access_key_id
+            - name: aws.secret_access_key
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: aws.secret_access_key

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: urs-proxy
+  name: urs-proxy
+spec:
+  ports:
+    - port: 8094
+      protocol: TCP
+      targetPort: 8094
+      name: https
+  selector:
+    app: urs-proxy
+  type: ClusterIP

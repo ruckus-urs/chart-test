@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: urs-scheduler
+  name: urs-scheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: urs-scheduler
+  template:
+    metadata:
+      labels:
+        app: urs-scheduler
+    spec:
+      containers:
+        - name: urs-scheduler
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-scheduler:23
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: env.profile
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: env.profile
+            - name: spring.data.redis.host
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.data.redis.host
+            - name: spring.data.redis.timeout
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.data.redis.timeout
+            - name: tunnel.host
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: tunnel.host
+            - name: spring.cloud.kubernetes.discovery.namespaces
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.cloud.kubernetes.discovery.namespaces
+            - name: device.share_key.expiration.days
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: device.share_key.expiration.days
+            - name: aws.dynamodb.region
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: aws.dynamodb.region
+            - name: aws.dynamodb.access_key_id
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: aws.access_key_id
+            - name: aws.dynamodb.secret_access_key
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: aws.secret_access_key
