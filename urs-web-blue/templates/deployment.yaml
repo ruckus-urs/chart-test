@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urs-web-blue
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-web:90
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-web:105
           imagePullPolicy: IfNotPresent
           env:
             - name: env.profile
@@ -24,6 +24,7 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: env.profile
+              value: 1.0.0.105
             - name: mfa.enable
               valueFrom:
                 configMapKeyRef:
@@ -79,37 +80,37 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: aws.cognito.user-pool-domain.blue
-            - name:  email.service.smtp
+            - name: email.service.smtp
               valueFrom:
                 configMapKeyRef:
                   name: urs-config
                   key: email.service.smtp.blue
-            - name:  email.service.auth
+            - name: email.service.auth
               valueFrom:
                 configMapKeyRef:
                   name: urs-config
                   key: email.service.auth.blue
-            - name:  email.service.port
+            - name: email.service.port
               valueFrom:
                 configMapKeyRef:
                   name: urs-config
                   key: email.service.port.blue
-            - name:  email.service.starttls.enable
+            - name: email.service.starttls.enable
               valueFrom:
                 configMapKeyRef:
                   name: urs-config
                   key: email.service.starttls.enable.blue
-            - name:  email.service.ssl.enable
+            - name: email.service.ssl.enable
               valueFrom:
                 configMapKeyRef:
                   name: urs-config
                   key: email.service.ssl.enable.blue
-            - name:  email.service.userName
+            - name: email.service.userName
               valueFrom:
                 configMapKeyRef:
                   name: urs-config
                   key: email.service.userName.blue
-            - name:  email.service.password
+            - name: email.service.password
               valueFrom:
                 secretKeyRef:
                   name: urs-secret
@@ -134,4 +135,3 @@ spec:
                 secretKeyRef:
                   name: urs-secret
                   key: aws.secret_access_key
-
