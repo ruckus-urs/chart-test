@@ -19,12 +19,13 @@ spec:
           image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-web:105
           imagePullPolicy: IfNotPresent
           env:
+            - name: release.version
+              value: 1.0.0.105
             - name: env.profile
               valueFrom:
                 configMapKeyRef:
                   name: urs-config
                   key: env.profile
-              value: 1.0.0.105
             - name: mfa.enable
               valueFrom:
                 configMapKeyRef:
