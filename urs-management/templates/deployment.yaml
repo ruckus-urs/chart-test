@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urs-management
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-management:53
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-management:55
           imagePullPolicy: IfNotPresent
           env:
             - name: env.profile
