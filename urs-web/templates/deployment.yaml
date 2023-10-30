@@ -66,11 +66,6 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: aws.cognito.region.unleashed
-            - name: aws.cognito.clientId
-              valueFrom:
-                configMapKeyRef:
-                  name: urs-config
-                  key: aws.cognito.clientId.unleashed
             - name: aws.cognito.pool-id
               valueFrom:
                 configMapKeyRef:
@@ -116,12 +111,12 @@ spec:
                 secretKeyRef:
                   name: urs-secret
                   key: email.service.password.unleashed
-            - name: spring.security.oauth2.client.registration.cognito.clientId
+            - name: aws.cognito.clientId
               valueFrom:
                 configMapKeyRef:
                   name: urs-config
                   key: aws.cognito.clientId.unleashed
-            - name: spring.security.oauth2.client.registration.cognito.clientSecret
+            - name: aws.cognito.clientSecret
               valueFrom:
                 secretKeyRef:
                   name: urs-secret
