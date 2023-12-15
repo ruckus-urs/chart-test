@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: urs-maintenance
+  name: urs-maintenance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: urs-maintenance
+  template:
+    metadata:
+      labels:
+        app: urs-maintenance
+    spec:
+      containers:
+        - name: urs-maintenance
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-maintenance:7
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: release.version
+              value: 1.0.0.180
