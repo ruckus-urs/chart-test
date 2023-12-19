@@ -131,3 +131,5 @@ spec:
                 secretKeyRef:
                   name: urs-secret
                   key: aws.secret_access_key
+            - name: forward.retry.count
+              value: "1"
