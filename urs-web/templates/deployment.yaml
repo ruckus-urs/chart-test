@@ -133,3 +133,8 @@ spec:
                   key: aws.secret_access_key
             - name: forward.retry.count
               value: "1"
+            - name: server.help.online.url
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: server.help.online.url
