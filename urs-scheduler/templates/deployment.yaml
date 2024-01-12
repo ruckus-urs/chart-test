@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urs-scheduler
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-scheduler:38
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-scheduler:41
           imagePullPolicy: IfNotPresent
           env:
             - name: env.profile
