@@ -138,3 +138,8 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: server.help.online.url
+            - name: server.release.notes
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: server.release.notes
