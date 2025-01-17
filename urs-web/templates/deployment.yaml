@@ -168,8 +168,13 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: spring.security.oauth2.client.registration.r1.token_uri
-            - name: spring.security.oauth2.client.registration.r1.token_uri
+            - name: spring.security.oauth2.client.registration.r1.jwks
               valueFrom:
                 configMapKeyRef:
                   name: urs-config
-                  key: spring.security.oauth2.client.registration.r1.token_uri
+                  key: spring.security.oauth2.client.registration.r1.jwks
+            - name: spring.security.oauth2.client.registration.r1.api_key
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: spring.security.oauth2.client.registration.r1.api_key
