@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
         - name: urs-web-blue
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-web:1.1.0.85
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-web:1.1.0.86
           imagePullPolicy: IfNotPresent
           env:
             - name: release.version
-              value: 1.1.0.85
+              value: 1.1.0.86
             - name: env.profile
               valueFrom:
                 configMapKeyRef:
