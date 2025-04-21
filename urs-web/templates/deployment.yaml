@@ -178,3 +178,38 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: spring.security.oauth2.client.registration.r1.api_key
+            - name: azure.smtp.client_id
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: azure.smtp.client_id
+            - name: azure.smtp.tenant_id
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: azure.smtp.tenant_id
+            - name: azure.smtp.client_secret
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: azure.smtp.client_secret
+            - name: azure.smtp.scopes
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: azure.smtp.scopes
+            - name: azure.smtp.mail_from
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: azure.smtp.mail_from
+            - name: azure.smtp.user_name
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: azure.smtp.user_name
+            - name: azure.smtp.system_name
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: azure.smtp.system_name
