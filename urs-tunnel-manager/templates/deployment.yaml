@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urs-tunnel-manager
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-tunnel-manager:1.2.0.1
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-tunnel-manager:1.2.0.4
           imagePullPolicy: IfNotPresent
           env:
             - name: env.profile
