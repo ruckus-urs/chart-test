@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: urs-stats
+    app.kubernetes.io/instance: urs-stats
+  name: urs-stats
+  namespace: ingress-nginx
+spec:
+  ports:
+    - name: http-web
+      port: 8020
+      protocol: TCP
+      targetPort: 8020
+    - name: https-portal
+      port: 9643
+      protocol: TCP
+      targetPort: 9643
+  selector:
+    app: urs-stats
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: urs-stats-service
+    app.kubernetes.io/instance: urs-stats
+  name: urs-stats-service
+  namespace: ingress-nginx
+spec:
+  ports:
+    - name: http-internal-port
+      port: 8021
+      protocol: TCP
+      targetPort: 8021
+  selector:
+    app: urs-stats
+  type: ClusterIP
