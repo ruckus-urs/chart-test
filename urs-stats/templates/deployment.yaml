@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urs-stats
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-stats:1.2.0.80
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-stats:1.2.0.81
           imagePullPolicy: IfNotPresent
           env:
             - name: env.profile
