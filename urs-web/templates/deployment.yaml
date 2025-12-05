@@ -188,8 +188,6 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: azure.smtp.system_name
-            - name: server.login.cam.only
-              value: "false"
             - name: spring.security.user.password
               valueFrom:
                 secretKeyRef:
