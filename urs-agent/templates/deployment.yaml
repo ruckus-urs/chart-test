@@ -44,3 +44,18 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: spring.cloud.kubernetes.discovery.namespaces
+            - name: spring.security.user.password
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: spring.security.user.password
+            - name: pubnub.subkey
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: pubnub.subkey
+            - name: pubnub.pubkey
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: pubnub.pubkey

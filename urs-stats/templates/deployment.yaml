@@ -34,6 +34,11 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: spring.data.redis.timeout
+            - name: spring.data.redis.password
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: spring.data.redis.password
             - name: tunnel.host
               valueFrom:
                 configMapKeyRef:
@@ -56,8 +61,8 @@ spec:
                   key: azure.smtp.tenant_id
             - name: azure.smtp.client_secret
               valueFrom:
-                configMapKeyRef:
-                  name: urs-config
+                secretKeyRef:
+                  name: urs-secret
                   key: azure.smtp.client_secret
             - name: azure.smtp.scopes
               valueFrom:
@@ -96,5 +101,23 @@ spec:
                   key: aws.dynamodb.region
             - name: server.portal.port
               value: "9643"
-            - name: server.login.cam.only
-              value: "false"
+            - name: spring.security.user.password
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: spring.security.user.password
+            - name: server.portal.ssl.key-store-password
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: server.portal.ssl.key-store-password
+            - name: server.portal.ssl.trust-store-password
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: server.portal.ssl.trust-store-password
+            - name: jwt.secret
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: jwt.secret

@@ -34,6 +34,11 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: spring.data.redis.timeout
+            - name: spring.data.redis.password
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: spring.data.redis.password
             - name: tunnel.host
               valueFrom:
                 configMapKeyRef:
