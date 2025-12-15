@@ -213,3 +213,8 @@ spec:
                 secretKeyRef:
                   name: urs-secret
                   key: google.firebase.config.apiKey
+            - name: browse.des.key
+              valueFrom:
+                secretKeyRef:
+                  name: urs-secret
+                  key: browse.des.key
