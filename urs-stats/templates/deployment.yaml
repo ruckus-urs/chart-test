@@ -24,6 +24,8 @@ spec:
                 configMapKeyRef:
                   name: urs-config
                   key: env.profile
+            - name: server.portal.ssl.client-auth
+              value: "NEED"
             - name: spring.data.redis.host
               valueFrom:
                 configMapKeyRef:
