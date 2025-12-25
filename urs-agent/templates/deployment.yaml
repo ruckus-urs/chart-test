@@ -49,6 +49,11 @@ spec:
                 secretKeyRef:
                   name: urs-secret
                   key: spring.security.user.password
+            - name: pubnub.connection.url
+              valueFrom:
+                configMapKeyRef:
+                  name: urs-config
+                  key: pubnub.connection.url
             - name: pubnub.subkey
               valueFrom:
                 secretKeyRef:
