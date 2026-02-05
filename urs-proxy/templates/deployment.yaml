@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urs-proxy
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-proxy:1.2.0.14
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-proxy:1.2.0.20
           imagePullPolicy: IfNotPresent
           env:
             - name: env.profile
