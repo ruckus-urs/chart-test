@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urs-web
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-web:1.2.0.62
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-web:1.2.0.70
           imagePullPolicy: IfNotPresent
           env:
             - name: release.version
