@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urs-agent
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-agent:1.2.0.68
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-agent:1.2.0.69
           imagePullPolicy: IfNotPresent
           env:
             - name: env.profile
