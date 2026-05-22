@@ -5,7 +5,7 @@ metadata:
     app: urs-agent
   name: urs-agent
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: urs-agent
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urs-agent
-          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-agent:1.2.0.70
+          image: 765528283900.dkr.ecr.us-west-2.amazonaws.com/urs-agent:1.2.0.73
           imagePullPolicy: IfNotPresent
           env:
             - name: env.profile
